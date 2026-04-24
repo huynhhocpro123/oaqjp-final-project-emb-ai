@@ -341,7 +341,7 @@ def detect_emotion():
 
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=5001, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 ```
 
 ---
@@ -429,11 +429,46 @@ def emotion_detector(text_to_analyze):
 **Code showing the handling of blank input errors in server.py**
 
 ```python
+"""Flask server for Emotion Detection application."""
+from flask import Flask, request, render_template
+from EmotionDetection.emotion_detection import emotion_detector
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def index():
+    """Render the index page."""
+    return render_template('index.html')
+
+
+@app.route("/emotionDetector")
+def detect_emotion():
+    """
+    Detect emotion from the provided text.
+
+    Returns:
+        str: Formatted emotion analysis result or error message.
+    """
     text_to_analyze = request.args.get('textToAnalyze')
     response = emotion_detector(text_to_analyze)
 
     if response['dominant_emotion'] is None:
         return "Invalid text! Please try again!"
+
+    return (
+        f"For the given statement, the system response is "
+        f"'anger': {response['anger']}, "
+        f"'disgust': {response['disgust']}, "
+        f"'fear': {response['fear']}, "
+        f"'joy': {response['joy']} and "
+        f"'sadness': {response['sadness']}. "
+        f"The dominant emotion is {response['dominant_emotion']}."
+    )
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
 ```
 
 ---
@@ -454,7 +489,7 @@ def emotion_detector(text_to_analyze):
 ## Question 15 | TEXT (1 point) - Task 8 Activity 1
 **Code of server.py demonstrating running static code analysis**
 
-Code này chính là toàn bộ `server.py` đã tuân thủ PEP8, có docstring đầy đủ, và đạt pylint 10.00/10. Copy toàn bộ code từ Question 10.
+Code này chính là toàn bộ `server.py` đã tuân thủ PEP8, có docstring đầy đủ, và đạt pylint 10.00/10.
 
 ```python
 """Flask server for Emotion Detection application."""
@@ -496,7 +531,7 @@ def detect_emotion():
 
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=5001, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 ```
 
 ---
