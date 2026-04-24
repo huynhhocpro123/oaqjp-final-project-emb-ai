@@ -6,7 +6,7 @@
 **Submit the public GitHub repository URL of README.md file**
 
 ```
-https://github.com/huynhhocpro123/emotion-detector/blob/main/README.md
+https://github.com/huynhhocpro123/oaqjp-final-project-emb-ai/blob/main/README.md
 ```
 
 ---
@@ -131,7 +131,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 **Submit the public GitHub repository URL of the __init__.py file**
 
 ```
-https://github.com/huynhhocpro123/emotion-detector/blob/main/EmotionDetection/__init__.py
+https://github.com/huynhhocpro123/oaqjp-final-project-emb-ai/blob/main/EmotionDetection/__init__.py
 ```
 
 ---
